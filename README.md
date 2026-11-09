@@ -1,98 +1,71 @@
-# Mo Focus
- 
-A clean, minimal Pomodoro timer that runs in the browser and installs on your phone as an app. Built as a single HTML file with no frameworks, no build step and no tracking.
- 
-## Features
- 
-- **Pomodoro cycle**: 25-minute focus sessions and 5-minute breaks, with a 15-minute long break after every 4 focus sessions.
-- **One-tap flow**: press **Start** once to begin each focus session or break. The next phase is queued automatically.
-- **Audible alerts**: four built-in sounds (Chime, Bell, Digital, Marimba), adjustable volume and repeat count. Optional vibration and system notifications.
-- **Tasks**: add tasks with an estimated number of sessions, pick the one you are working on, and every finished focus session counts toward it.
-- **Statistics**: today's progress against a daily goal, a 7-day chart, current streak, best day, totals, top tasks and recent sessions.
-- **Settings**: change every duration, the cycle length, the daily goal, alert options and auto-start behavior.
-- **Light and dark mode**: follows the system by default, with a one-tap toggle.
-- **English and Arabic**: full right-to-left layout in Arabic.
-- **Works offline**: once installed, it runs without an internet connection.
-- **Private by design**: all data stays in the browser's local storage on your device.
-## Getting started
- 
-### Run it on a computer
- 
-No installation needed. Download or clone the repository and open `index.html` in any modern browser.
- 
-```bash
-git clone https://github.com/<your-username>/mo-focus.git
-cd mo-focus
-open index.html        # macOS
-start index.html       # Windows
-xdg-open index.html    # Linux
-```
- 
-### Install it on a phone
- 
-The app must be served over HTTPS to be installable. The easiest way is GitHub Pages:
- 
-1. Push this repository to GitHub.
-2. Go to **Settings → Pages**.
-3. Under **Build and deployment**, choose **Deploy from a branch**, select `main` and `/ (root)`, then save.
-4. Open the published link on your phone:
-   - **iPhone**: Safari → Share → **Add to Home Screen**
-   - **Android**: Chrome → menu → **Install app**
-It then opens full-screen like a native app and works offline.
- 
-Any static host works too, such as Netlify, Vercel or Cloudflare Pages.
- 
-## Usage
- 
-| Action | How |
-| --- | --- |
-| Start or pause | **Start** button, or the `Space` key on a computer |
-| Reset the current phase | **Reset** button |
-| Skip to the next phase | **Skip** button |
-| Switch phase manually | Focus / Short Break / Long Break control at the top |
-| Change theme | Sun/moon button in the top bar, or **Settings → Appearance** |
-| Change language | **Settings → Language** |
- 
-## Default timing
- 
-| Phase | Duration |
-| --- | --- |
-| Focus | 25 minutes |
-| Short break | 5 minutes |
-| Long break | 15 minutes |
-| Long break after | 4 focus sessions |
-| Daily goal | 8 sessions |
- 
-All values can be changed in **Settings**.
- 
-## Project structure
- 
-```
-.
-├── index.html             # The entire app: markup, styles and script
-├── manifest.webmanifest   # App name, icons and display mode for installation
-├── sw.js                  # Service worker for offline support
-└── icons/
-    ├── icon-192.png
-    ├── icon-512.png
-    ├── apple-touch-icon.png
-    └── favicon-32.png
-```
- 
+# MO FOCUS
+
+A Pomodoro timer made for Mohammad.
+
+## On a computer (no install)
+
+1. Unzip this folder.
+2. Double-click `index.html`.
+
+It opens in your browser and works offline. Music stations (YouTube, Spotify…) only work from the online version.
+
+## On a phone (install as an app)
+
+1. Put this folder online for free: drag it onto [Netlify Drop](https://app.netlify.com/drop) (or use GitHub Pages). You get a link.
+2. Open the link on your phone.
+   - **iPhone:** Safari → Share → **Add to Home Screen**
+   - **Android:** Chrome → menu → **Install app**
+
+It then opens full-screen like a normal app and works offline.
+
+## Updating the app without losing anyone's data
+
+Each user's settings, tasks and statistics are saved in their own browser, tied to the site's **address**. An update keeps that data as long as the address stays the same.
+
+1. **Upload to the same site.** On Netlify, open your existing site → **Deploys** → drag the new folder onto it. Don't use Netlify Drop again: that creates a new address, and the app would open empty there.
+2. **Never change the address** (domain or folder path). If you ever must, ask users to tap **Settings → Export backup** first, then **Import backup** on the new address.
+3. **When you change any file, raise the version** at the top of `sw.js` (for example `mofocus-v7` → `mofocus-v8`) so phones download the new files.
+
+What the app does to protect data:
+
+- The storage key never changes, and new versions only add fields — they never remove old ones.
+- Before upgrading saved data to a new format, it keeps a copy of the old data.
+- If saved data can't be read, it's set aside instead of being overwritten.
+- It asks the browser to keep the data even when storage is low.
+- **Settings → Export backup / Import backup** saves everything to a file and restores it on any device.
+
 ## Notes
- 
-- **Alerts** play while the app is open, including in a background tab. On iPhone, keep the app on screen during a session. The **Keep screen awake** setting helps with this.
-- **Data** is stored per device and per browser. It does not sync between devices.
-- **Fonts**: the app uses the system font on Apple devices and loads Inter and IBM Plex Sans Arabic from Google Fonts elsewhere. Offline, it falls back to the system font.
-- **Offline support** needs the app to be served over HTTP or HTTPS. Opening `index.html` directly works fine, but the service worker only activates when hosted.
-## Browser support
- 
-Recent versions of Safari, Chrome, Edge and Firefox on desktop and mobile.
- 
-## Contributing
- 
-Issues and pull requests are welcome. Since the app is a single file, changes usually only touch `index.html`. If you change cached files, bump the cache name in `sw.js` so installed copies update.
- 
-## License
- 
-Add a license of your choice, for example [MIT](https://choosealicense.com/licenses/mit/).
+
+- The app uses the phone's or computer's system language (Arabic or English). The layout is the same in both languages.
+- The screen stays on while the timer runs, and for 5 minutes after a phase ends or is paused. Turn this off in **Settings → Keep screen awake**.
+- Alerts play while the app is open. Keep the volume up.
+- Switching between Focus and breaks keeps each one's progress. A small dot marks a paused phase, and the timer resumes from where you left it.
+- **Music:** built-in ambient sounds (rain, ocean, brown noise, white noise) work offline. You can also paste any YouTube, Spotify, SoundCloud or Apple Music link. Spotify plays full songs only when you are signed in to Spotify in that browser.
+- On a computer, the **Space** bar starts or pauses the timer.
+
+---
+
+<div dir="rtl">
+
+# مو فوكس
+
+مؤقت بومودورو صُمم لمحمد.
+
+## على الكمبيوتر
+
+فك ضغط المجلد وانقر مرتين على `index.html`.
+
+## على الهاتف
+
+ارفع المجلد إلى [Netlify Drop](https://app.netlify.com/drop) ثم افتح الرابط على هاتفك:
+
+- **آيفون:** سفاري ← مشاركة ← **إضافة إلى الشاشة الرئيسية**
+- **أندرويد:** كروم ← القائمة ← **تثبيت التطبيق**
+
+## التحديث دون فقدان البيانات
+
+- ارفع النسخة الجديدة إلى **الموقع نفسه** (في Netlify: افتح موقعك ← Deploys ← اسحب المجلد). لا تستخدم Netlify Drop مرة أخرى لأنه يُنشئ عنواناً جديداً فارغاً.
+- لا تغيّر عنوان الموقع. وإن اضطررت، اطلب من المستخدمين **تصدير نسخة احتياطية** من الإعدادات ثم استيرادها في العنوان الجديد.
+- عند تعديل أي ملف، ارفع رقم الإصدار في أعلى `sw.js`.
+
+</div>
