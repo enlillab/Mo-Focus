@@ -40,7 +40,32 @@ What the app does to protect data:
 - The screen stays on while the timer runs, and for 5 minutes after a phase ends or is paused. Turn this off in **Settings → Keep screen awake**.
 - Alerts play while the app is open. Keep the volume up.
 - Switching between Focus and breaks keeps each one's progress. A small dot marks a paused phase, and the timer resumes from where you left it.
-- **Music:** built-in ambient sounds (rain, ocean, brown noise, white noise) work offline. You can also paste any YouTube, Spotify, SoundCloud or Apple Music link. Spotify plays full songs only when you are signed in to Spotify in that browser.
+- **Sounds tab:** built-in ambient sounds (rain, ocean, brown noise, white noise) work offline. You can also paste any YouTube, Spotify, SoundCloud or Apple Music link. Spotify plays full songs only when you are signed in to Spotify in that browser.
 - On a computer, the **Space** bar starts or pauses the timer.
 
 ---
+
+<div dir="rtl">
+
+# مو فوكس
+
+مؤقت بومودورو صُمم لمحمد.
+
+## على الكمبيوتر
+
+فك ضغط المجلد وانقر مرتين على `index.html`.
+
+## على الهاتف
+
+ارفع المجلد إلى [Netlify Drop](https://app.netlify.com/drop) ثم افتح الرابط على هاتفك:
+
+- **آيفون:** سفاري ← مشاركة ← **إضافة إلى الشاشة الرئيسية**
+- **أندرويد:** كروم ← القائمة ← **تثبيت التطبيق**
+
+## التحديث دون فقدان البيانات
+
+- ارفع النسخة الجديدة إلى **الموقع نفسه** (في Netlify: افتح موقعك ← Deploys ← اسحب المجلد). لا تستخدم Netlify Drop مرة أخرى لأنه يُنشئ عنواناً جديداً فارغاً.
+- لا تغيّر عنوان الموقع. وإن اضطررت، اطلب من المستخدمين **تصدير نسخة احتياطية** من الإعدادات ثم استيرادها في العنوان الجديد.
+- عند تعديل أي ملف، ارفع رقم الإصدار في أعلى `sw.js`.
+
+</div>
